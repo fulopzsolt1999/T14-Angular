@@ -1,0 +1,13 @@
+<h1>Víz halmazállapota feladat</h1>
+
+<div class="form-group">
+    <label for="fok">A víz hőmérséklete:</label>
+    <input type="range" id="fok" [(ngModel)]="fok" class="form-control" min="-100" max="200"
+        (ngModelChange)="halmazAllapot()">
+</div>
+<!--<button type="button" class="btn btn-info my-2 w-100" (click)="halmazAllapot()">Halmazállapot megjelenítése </button>-->
+
+<p>A víz aktuális hőmérséklete:{{fok}} C°</p>
+<p>A víz halmazállapota:{{halmazallapot}}</p>
+
+<img [src]=viz [alt]=vizAlt [title]=vizTitle [width]=alapmeret>

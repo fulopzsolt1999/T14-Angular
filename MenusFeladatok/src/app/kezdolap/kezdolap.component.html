@@ -1,0 +1,89 @@
+<h1>A Menus feladatok angular projekt lépéseinek leírása:</h1>
+
+
+<ol>
+    <li>Létehozom az angular projektet: <code>ng new Menusfeladatok --no-standalone</code>
+        <ul>
+            <li>Elkészítem a kezdőlap komponenst: <code>ng g c kezdolap</code></li>
+            <li>Elkészítem a hibakezelő komponenst: <code>ng g c hiba404</code></li>
+            <li>Elkészítem a téglalap komponenst: <code>ng g c teglalap</code></li>
+            <li>Elkészítem a páros-páratlan komponenst: <code>ng g c parosparatlan</code></li>
+            <li>Elkészítem a víz halmazállapota komponenst: <code>ng g c halmazallapot</code></li>
+        </ul>
+    </li>
+    <li>Hiba404 oldal tartalmát elkészítettem: <code>&lt;h1 class=&quot;text-center&quot;&gt;Hiba 404, a keresett oldal nem
+        található&lt;/h1&gt;</code></li>
+    <li>Routing beállítása: <code>app-routing.module.ts</code>
+        <ul>
+            <li>Kezdőlap routingja:<code>path: "kezdolap", component: KezdolapComponent </code></li>
+            <li>Hibakezelő routingja:<code>path: "hiba", component: Hiba404Component</code></li>
+            <li>Téglalap komponens routingja:<code>path: "teglalap", component: TeglalapComponent</code></li>
+            <li>Páros páratlan komponens routingja:<code>path: "parosparatlan", component: ParosparatlanComponent</code>
+            </li>
+            <li>Halmazállapot komponens routingja:
+                <code> path: "halmazallapot", component: HalmazallapotComponent</code>
+            </li>
+            <li>Routing üres útvonal esetén: <code>path: "", redirectTo: "/kezdolap", pathMatch: "full"</code></li>
+            <li>Routing minden egyéb esetben (ELSE ÁG) <code>path: "**", component: Hiba404Component </code></li>
+        </ul>
+    </li>
+    <li><code>app.component.html</code> tartamát törlöm kivéve a <code>&lt;router-outlet /&gt;</code> rész</li>
+    <li>Elkészítek pár egyszerű linket a routing elérésekhez:
+        <ul>
+            <li>Kezdőlap komponenshez: <code>&lt;a routerLink=&quot;/kezdolap&quot;&gt;Kezdőlap&lt;/a&gt;</code></li>
+            <li>Téglalap komponenshez: <code>&lt;a routerLink=&quot;/teglalap&quot;&gt;Téglalap&lt;/a&gt;</code></li>
+            <li>Páros-páratlan
+                komponenshez: <code>&lt;a routerLink=&quot;/parosparatlan&quot;&gt;Páros páratlan&lt;/a&gt;</code></li>
+            <li>Halmazállapot
+                komponenshez: <code>&lt;a routerLink=&quot;/halmazallapot&quot;&gt;Halmazállapot&lt;/a&gt;</code></li>
+            <li>Hiba komponenshez:<code>&lt;a routerLink=&quot;/hiba&quot;&gt;Hiba404&lt;/a&gt;</code></li>
+        </ul>
+
+    </li>
+    <li>Telepítem a bootstrap-et:<code> npm install bootstrap</code>
+        <ol>
+            <li>Módosítom az <code>angular.json</code> fájl tartalmát, a bootstrap elérési útvonalával</li>
+            <li>Bootstrap CSS fájl útvonala:<code>&quot;styles&quot;: [
+                &quot;src/styles.css&quot;,&quot;./node_modules/bootstrap/dist/css/bootstrap.css&quot;
+              ]</code></li>
+            <li>Bootstrap JS fájl útvonala:<code>&quot;scripts&quot;: [
+                &quot;./node_modules/bootstrap/dist/js/bootstrap.js&quot;
+              ]</code></li>
+            <li>Tesztként futtatom az angular szervert: <code>ng serve</code></li>
+            <li>A linkeket elláttam megfelelő bootstrap osztályokkal:
+                <code>btn (btn-(primary-success-warning-info-danger)) m-2</code>
+            </li>
+        </ol>
+    </li>
+    <li>Importálom a <code>Formsmodule</code>-t mivel a feladatoknál űrlapokat szeretnék használni</li>
+    <li>Elkészítem a téglalap komponenst:<ol>
+            <li><code>aOldal: number = 1; teglalap.component.ts</code> állomány új mezője</li>
+            <li><code>bOldal: number = 1; teglalap.component.ts</code> állomány új mezője</li>
+            <li>Elkészítem az űrlapot és a számításokat a <code>teglalap.component.hmtl</code> állományban
+                <ul>
+                    <li>Űrlap
+                        elemek:<code><br>
+                        &lt;label for=&quot;aOldal&quot;&gt;Az a oldal mérete:&lt;/label&gt;<br>
+                        &lt;input type=&quot;number&quot; id=&quot;aOldal&quot; [(ngModel)]=&quot;aOldal&quot; class=&quot;form-control&quot;&gt;<br>
+                        
+                        &lt;label for=&quot;bOldal&quot;&gt;Az a oldal mérete:&lt;/label&gt;<br>
+                        &lt;input type=&quot;number&quot; id=&quot;bOldal&quot; [(ngModel)]=&quot;bOldal&quot; class=&quot;form-control&quot;&gt;</code>
+                    </li>
+                    <li>Interpolációs megjelenítés:
+                        <code>
+                            {{'
+                            &lt;p&gt;A téglalap [A] oldalának mérete: {{aOldal}}&lt;/p&gt;
+                            &lt;p&gt;A téglalap [B] oldalának mérete: {{bOldal}}&lt;/p&gt;
+                            &lt;p&gt;A téglalap kerülete: {{2*(aOldal+bOldal)}}&lt;/p&gt;
+                            &lt;p&gt;A téglalap területe: {{aOldal*bOldal}}&lt;/p&gt;
+                            '}}
+                        </code>
+                    </li>
+                </ul>
+            </li>
+
+        </ol>
+    </li>
+    <li>Elkészítem a Párospáratlan komponenst</li>
+    <li>Elkészítem a Halmazállapot komponenst</li>
+</ol>

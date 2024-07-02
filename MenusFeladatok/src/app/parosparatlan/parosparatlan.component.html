@@ -1,0 +1,8 @@
+<h1>Páros páratlan feladat</h1>
+<div class="form-group">
+    <label for="vizsgaltSzam">Add meg a vizsgálandó számot:</label>
+    <input type="number" id="vizsgaltSzam" [(ngModel)]="vizsgaltSzam" class="form-control">
+</div>
+<button type="button" class="btn btn-dark my-2 w-100" (click)="SzamVizsgalata()">Érték megvizsgálása</button>
+
+<p>A vizsgált számunk: {{eredmeny}}</p>

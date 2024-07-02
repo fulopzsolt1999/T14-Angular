@@ -1,0 +1,12 @@
+<h1>Téglalap feladat</h1>
+
+<label for="aOldal">Az a oldal mérete:</label>
+<input type="number" id="aOldal" [(ngModel)]="aOldal" class="form-control">
+
+<label for="bOldal">Az a oldal mérete:</label>
+<input type="number" id="bOldal" [(ngModel)]="bOldal" class="form-control">
+
+<p>A téglalap [A] oldalának mérete: {{aOldal}}</p>
+<p>A téglalap [B] oldalának mérete: {{bOldal}}</p>
+<p>A téglalap kerülete: {{2*(aOldal+bOldal)}}</p>
+<p>A téglalap területe: {{aOldal*bOldal}}</p>
