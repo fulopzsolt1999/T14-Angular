@@ -1,0 +1,37 @@
+<h1>Angular modul megoldás</h1>
+
+<div class="container mt-5">
+  <div class="mb-3">
+    <label for="weight" class="form-label">Testtömeg (kg)</label>
+    <input
+      type="number"
+      class="form-control"
+      id="weight"
+      [(ngModel)]="weight"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="height" class="form-label">Magasság (m)</label>
+    <input
+      type="number"
+      class="form-control"
+      id="height"
+      [(ngModel)]="height"
+    />
+  </div>
+  <button class="btn btn-success w-100" (click)="calculateBMI()">
+    EredmenyMentes
+  </button>
+  <p *ngIf="bmiResult">
+    A megadott értékek alapján a testtömeg index: {{ bmiResult }}
+  </p>
+  <div class="container mt-3">
+    <h4>Log:</h4>
+    <ul>
+      <li *ngFor="let entry of log">
+        Az {{ entry.weight }}kg testsúlyú és {{ entry.height }}m magasságú ember
+        testtömeg indexe: {{ entry.bmiResult }}
+      </li>
+    </ul>
+  </div>
+</div>
