@@ -1,0 +1,36 @@
+<h1>Adatköztés típusok Angularban</h1>
+
+<h3>Interpoláció => kiolvassa és megjeleníti az értékeket a backend kódból</h3>
+<p>{{ szoveg }}</p>
+
+<h3>Property binding =></h3>
+<a [href]="kepUtvonal" [target]="kepCel"
+  ><img
+    [src]="kepLink"
+    [alt]="kepAlternativSzoveg"
+    [title]="kepCimke"
+    [width]="kepSzelesseg"
+/></a>
+
+<h3>Event binding =></h3>
+<button class="btn btn-primary" (click)="uzenet()">Uzenet</button>
+<button type="button" class="btn btn-primary" (click)="ittAFonok()">
+  Váltás főnök nézetre
+</button>
+
+<h3>Kétirányú adatkötés azaz Two Way DataBinding</h3>
+<p>
+  Ha kétirányú adatkötésnél formokat használnuk akkor importálvi kell a
+  <code>FormsModule</code> elemet a <code>app.module.ts</code> ts állomány
+  imports részénél lásd az aktuális projektben is megtettük
+</p>
+<label for="aOldal">Az a oldal mérete:</label>
+<input
+  type="text"
+  class="form-control w-100 my-2"
+  id="aOldal"
+  [(ngModel)]="aOldal"
+/>
+<p>A négyzet oldalának mérete: {{ aOldal }}</p>
+<p>A négyzet kerülete: {{ 2 * aOldal }}</p>
+<p>A gyzet területe: {{ aOldal * aOldal }}</p>

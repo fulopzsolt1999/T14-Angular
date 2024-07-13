@@ -1,0 +1,15 @@
+<h1>Bevásárló lista "loggolás"</h1>
+
+<div class="form-group">
+  <label for="termek">Új termék hozzáadása a bevásárlóhoz:</label>
+  <input type="text" class="form-control w-100 my-2" [(ngModel)]="ujTermek" />
+  <button type="button" class="btn btn-dark w-100" (click)="termekHozzaad()">
+    Termék hozzáad
+  </button>
+</div>
+
+<!-- Megjeleníti a tömbünk elemeit -->
+<h2>Aktuális bevásárlólista</h2>
+<ul>
+  <li *ngFor="let item of bevasarloLista">{{ item }}</li>
+</ul>
