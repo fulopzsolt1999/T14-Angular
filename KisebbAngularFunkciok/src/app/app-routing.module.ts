@@ -6,20 +6,22 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
 import { NgifComponent } from './ngif/ngif.component';
 import { NgforComponent } from './ngfor/ngfor.component';
 import { LoggoloComponent } from './loggolo/loggolo.component';
+import { TablazatGeneralasComponent } from './tablazat-generalas/tablazat-generalas.component';
 
 const routes: Routes = [
-  { path: 'kezdolap', component: KezdolapComponent },
-  { path: 'hiba404', component: Hiba404Component },
-  { path: 'databinding', component: DataBindingComponent },
-  { path: 'ngif', component: NgifComponent },
-  { path: 'ngfor', component: NgforComponent },
-  { path: 'loggolo', component: LoggoloComponent },
-  { path: '', redirectTo: '/kezdolap', pathMatch: 'full' },
-  { path: '**', component: Hiba404Component },
+  { path: "kezdolap", component: KezdolapComponent },
+  { path: "hiba404", component: Hiba404Component },
+  { path: "databinding", component: DataBindingComponent },
+  { path: "ngif", component: NgifComponent },
+  { path: "ngfor", component: NgforComponent },
+  { path: "loggolo", component: LoggoloComponent },
+  { path: "tablazat", component: TablazatGeneralasComponent },
+  { path: "", redirectTo: "/kezdolap", pathMatch: "full" },
+  { path: "**", component: Hiba404Component }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

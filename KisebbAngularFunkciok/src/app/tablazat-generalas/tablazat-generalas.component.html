@@ -1,0 +1,53 @@
+<h1>Táblázat generálása</h1>
+
+<h2>Adat feltöltése a táblázatba</h2>
+<div class="form-group">
+    <label for="helyezesErtek">Versenyző(k) helyezése</label>
+    <input type="number" class="form-control" id="helyezesErtek" [(ngModel)]="helyezesErtek">
+</div>
+
+<div class="form-group">
+    <label for="meretErtek">Csapat mérete</label>
+    <input type="number" class="form-control" id="meretErtek" [(ngModel)]="meretErtek">
+</div>
+
+<div class="form-group">
+    <label for="sportagErtek">Csapat sportága</label>
+    <input type="text" class="form-control" id="sportagErtek" [(ngModel)]="sportagErtek">
+</div>
+
+
+<div class="form-group">
+    <label for="versenyszamErtek">Versenyszám típusa</label>
+    <input type="text" class="form-control" id="versenyszamErtek" [(ngModel)]="versenyszamErtek">
+</div>
+
+<button type="button" class="btn btn-dark w-100 my-3" (click)="ujEredmenyHozzaadas()">Versenyző(k) adatainak
+    feltöltése</button>
+
+
+<h2>Szűrése a táblázat elemeinek:</h2>
+<div class="form-group">
+    <label for="keresoErtek">Add meg a keresés értékét</label>
+    <input type="text" class="form-control" id="keresoErtek" [(ngModel)]="keresoErtek">
+</div>
+
+<h2>Táblázat adatainak megjelenítése</h2>
+<table class="table table-striped table-dark table-sm">
+    <thead>
+        <tr>
+            <th>Helyezés</th>
+            <th>Csapat méret</th>
+            <th>Sportág</th>
+            <th>Versenyszám</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let objektumAdat of szurtElemek">
+            <td>{{objektumAdat.helyezes}}</td>
+            <td>{{objektumAdat.meret}}</td>
+            <td>{{objektumAdat.sportag}}</td>
+            <td>{{objektumAdat.versenyszam}}</td>
+        </tr>
+    </tbody>
+</table>

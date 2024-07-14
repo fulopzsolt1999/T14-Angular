@@ -1,1 +1,120 @@
-<p>kezdolap works!</p>
+<h1>Lépések a projekt létrehozásában</h1>
+
+<h2>Az alábbi lépések voltak a projekt fontosabb állomásai, az elkészítése során.</h2>
+<ol>
+    <li>Alap elemek elkészítése
+        <ol>
+            <li>Projekt létrehozása a <code>ng new KisebbAngularFunkciok --no-standalone</code> paranccsal</li>
+            <li>Komponensek létrehozása az <code>ng g c KompononsNeve</code> paranccsal</li>
+            <li>létrehoztam a <code>kezdolap, hiba404, data-binding, ngif, ngfor és loggolo</code> komponenseket</li>
+            <li>Elkészíteni a routing részt az <code>app-routing.modules.ts</code> állományban.</li>
+            <li>Telepíteni a bootstrap-et a <code>npm install bootstrap</code> paranccsal</li>
+            <li><code>angular.json</code> állományban a style és a script elemek módosítása/bővítése
+                <ul>
+                    <li><code>"./node_modules/bootstrap/dist/css/bootstrap.css"</code></li>
+                    <li><code>"./node_modules/bootstrap/dist/js/bootstrap.js"</code></li>
+                </ul>
+            </li>
+            <li><code>app.component.html</code> állomány teljes tartalmának törtlése kivéve az
+                <code>router-outlet</code> tag-et a végén
+            </li>
+            <li>Navigációs sáv kódjának beillesztése:<code>https://getbootstrap.com/docs/5.3/components/navbar/</code>
+                oldalról
+            </li>
+            <li>Elhelyezni a <code>routerLink</code> elemeket a navigációs sáv linkjeihez!</li>
+        </ol>
+
+    </li>
+    <li>Data Data-Binding
+        <ul>
+            <li>Interpoláció bemutatása: {{'{{}}'}} -ek közé elhelyezzük az elem nevét ami a backend kódban van
+                <ul>
+                    <li>backend kód: <code>szoveg: string = &quot;Szeretem a programozást&quot;</code></li>
+                    <li>frontend kód: <code>{{'{{szoveg}}'}}</code></li>
+                </ul>
+            </li>
+            <li>Property binding bemutatása: []-ek közé helyezzük az attributumot amit a propertyvel módosítani akarunk,
+                és létrehozunk neki egy változó értéket, aminek szeretnénk hogy az értékét megkapja
+                <ul>
+                    <li>backend kód:<code>kepCimke: string = "Meglepetés";</code> vagy épp
+                        <code>kepCel: string = "_blank";</code> stb...
+                    </li>
+                    <li>frontend kód:<code>&lt;a [href]=&quot;kepUtvonal&quot; [target]=&quot;kepCel&quot;&gt;&lt;img [src]=&quot;kepLink&quot; [alt]=&quot;kepAlternativSzoveg&quot; [title]=&quot;kepCimke&quot;
+                        [width]=&quot;kepSzelesseg&quot;&gt;&lt;/a&gt;</code></li>
+
+                </ul>
+            </li>
+            <li>Event binding : ()-ek közé helyezzük az event nevét, mondjuk click event és hozzárendelünk egy
+                függvényt[metódust], az angular backend kódból.
+                <ul>
+                    <li> backend kód: <code>{{'uzenet(): void { 
+                        alert(&quot;Hello ez itt egy team14 projekt!&quot;);
+                      '}}</code></li>
+                    <li>frontend kód: <code>(click)="uzenet()</code></li>
+                </ul>
+            </li>
+            <li>Kétirányú adatkötés azaz Two Way DataBinding
+                <ul>
+                    <li>Ha kétirányú adatkötésnél formokat használunk, akkor importálni kell a <code>FormsModule</code>
+                        elemet a
+                        <code>app.module.ts</code> állomány imports részénél, lásd az aktuális projektben is megtettük
+                        ezt!
+                    </li>
+                    <li>backend kód: egyszerű változó létrehozása <code>aOldal: number = 1;</code> </li>
+                    <li>frontend kód: hivatkozni <b>[(ngModel)] </b>elemmel:
+                        <code>&lt;input type=&quot;number&quot; class=&quot;form-control w-100 my-2&quot; id=&quot;aOldal&quot; [(ngModel)]=&quot;aOldal&quot;&gt;</code>
+                    </li>
+                    <li>Így elérjük, hogy az űrlapelemben módosított érték a backend kódban és módosuljon, és ha a
+                        backend kódon módosítanánk, az megjelenjen a frontend részen is!</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>ngIf elem használata
+        <ul>
+            <li>Alapvetően, ha elemhez rendeljük az *ngIf értéket, akkor true logikai érték esetén megjeleniti azt,
+                false esetén pedig elrejti.</li>
+            <li>frontend kód: <code>&lt;p *ngIf=&quot;szovegMegjelenit&quot;&gt;ngIf teszt&lt;/p&gt;</code></li>
+            <li>backend kód: <code>szovegMegjelenit: boolean = true;</code></li>
+        </ul>
+    </li>
+    <li>ngFor elem használata
+        <ul>
+            <li>*ngFor segítségével ciklus vezérlési szerkezettel, járhatunk be egy összetett adatszerkezetet, legyen az
+                akár tömb elemi értékekkel feltöltve, vagy épp objektumokkal töltött tömb.</li>
+            <li>backend kód (létrehozzuk az adatszerkezetet):
+                <code>bevasarloLista: string[] = [&quot;tej&quot;, &quot;kenyér&quot;, &quot;hercz szalámi&quot;, &quot;sör&quot;, &quot;alma&quot;, &quot;maci sajt&quot;, &quot;csokis tej&quot;]</code>
+            </li>
+            <li>Listában megjelentítjük az adatokat, ngFor és interpoláció segítségével az alábbi módon</li>
+            <li>frontend kód: <code>{{'&lt;li *ngFor=&quot;let termek of bevasarloLista&quot;&gt;
+                {{termek}}
+            &lt;/li&gt;'}}</code></li>
+            <li>A bevásárló lista elemein megy végéig, úgy hogy minden aktuális emelre, "termék" néven hivatkozik</li>
+        </ul>
+    </li>
+    <li>
+        Loggoló funkció készítése:
+        <ul>
+            <li>Létrehozzuk a változót amiben tároljuk az elemeket majd: <code>bevasarloLista: string[] = [];</code>
+            </li>
+            <li>Készítünk egy elemet, amiben az akutálisan letárolandó értéket tároljuk: <code>ujTermek!: string;</code>
+            </li>
+            <li>Majd végül egy függvény ami az eddig elemekehez hozzáadja, az új elemet: <code>{{'termekHozzaad(): void {
+                this.bevasarloLista.push(this.ujTermek);
+              }'}}</code></li>
+            <li>Elkészítünk egy formot, ami 2 way databing segítségével , megjelenítni az elemet, illetve ha a formban
+                lévő gombra kattintunk, feltölti az elemet, az összetett adatszerkezetünkben, a függvény meghívásával
+                (event binding)</li>
+            <li>Végül, a feltöltött adatokat, <code>*ngFor</code> segítségével, dinamikusan megjelenítjük az oldalunkon
+            </li>
+        </ul>
+    </li>
+    <li>Hibakezelő oldal
+        <ul>
+            <li>Beillesztem az alábbi szöveget az
+                oldalra:<code>&lt;h1 class=&quot;text-center&quot;&gt;Hiba:404, a keresett oldal nem található&lt;/h1&gt;</code>
+            </li>
+        </ul>
+    </li>
+
+</ol>

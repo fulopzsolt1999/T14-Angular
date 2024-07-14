@@ -10,6 +10,7 @@ import { NgforComponent } from './ngfor/ngfor.component';
 import { NgifComponent } from './ngif/ngif.component';
 import { LoggoloComponent } from './loggolo/loggolo.component';
 import { FormsModule } from '@angular/forms';
+import { TablazatGeneralasComponent } from './tablazat-generalas/tablazat-generalas.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,14 @@ import { FormsModule } from '@angular/forms';
     NgforComponent,
     NgifComponent,
     LoggoloComponent,
+    TablazatGeneralasComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
