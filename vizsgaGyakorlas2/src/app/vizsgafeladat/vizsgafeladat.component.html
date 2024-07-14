@@ -1,0 +1,78 @@
+<h1>Angular modul megoldása</h1>
+
+<div class="container">
+  <label for="html" class="form-label">HTML modul pontszám</label>
+  <input
+    type="number"
+    class="form-control"
+    id="html"
+    [(ngModel)]="htmlModul"
+    min="0"
+    max="15"
+  />
+
+  <label for="bootstrap" class="form-label">Bootstrap modul pontszám</label>
+  <input
+    type="number"
+    class="form-control"
+    id="bootstrap"
+    [(ngModel)]="bootstrapModul"
+    min="0"
+    max="15"
+  />
+
+  <label for="js" class="form-label">JavaScript modul pontszám</label>
+  <input
+    type="number"
+    class="form-control"
+    id="js"
+    [(ngModel)]="javaScriptModul"
+    min="0"
+    max="20"
+  />
+
+  <label for="ts" class="form-label">TypeScript modul pontszám</label>
+  <input
+    type="number"
+    class="form-control"
+    id="ts"
+    [(ngModel)]="typeScriptModul"
+    min="0"
+    max="20"
+  />
+
+  <label for="angular" class="form-label">Angular modul pontszám</label>
+  <input
+    type="number"
+    class="form-control"
+    id="angular"
+    [(ngModel)]="angularModul"
+    min="0"
+    max="15"
+  />
+
+  <label for="server" class="form-label">Szerver modul pontszám</label>
+  <input
+    type="number"
+    class="form-control"
+    id="server"
+    [(ngModel)]="serverModul"
+    min="0"
+    max="15"
+  />
+
+  <button
+    type="button"
+    class="btn btn-success my-2 w-100"
+    (click)="EredmenyMentes()"
+  >
+    Eredmény mentése
+  </button>
+  <p *ngIf="osszpontszam">
+    A vizsgán szerzett feladatok összpontszáma: {{ osszpontszam }}
+  </p>
+
+  <ul>
+    <li *ngFor="let eredmeny of EredmenyLog">{{ eredmeny }}</li>
+  </ul>
+</div>
