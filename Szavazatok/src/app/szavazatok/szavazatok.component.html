@@ -1,1 +1,38 @@
-<p>szavazatok works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h2>Szavazatok szűrése</h2>
+      <div class="form-group">
+        <label for="keresoErtek">Add meg a keresés értékét</label>
+        <input
+          type="text"
+          class="form-control"
+          id="keresoErtek"
+          [(ngModel)]="keresoErtek"
+        />
+      </div>
+    </div>
+
+    <div class="col-8">
+      <h2>Táblázat adatainak megjelenítése</h2>
+      <table class="table table-striped table-dark table-sm text-center">
+        <thead>
+          <tr>
+            <th>Körzet</th>
+            <th>Szavazatok száma</th>
+            <th>Jelölt neve</th>
+            <th>Párt neve</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let szavazat of szurtElemek">
+            <td>{{ szavazat.korzet }}</td>
+            <td>{{ szavazat.szavazat }}</td>
+            <td>{{ szavazat.nev }}</td>
+            <td>{{ szavazat.part }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
