@@ -49,6 +49,12 @@ export class SzavazatokComponent {
     { korzet: 5, szavazat: 68, nev: 'Vagdalt Edit', part: 'HEP' },
   ];
   szavazatokObject: Szavazatok[] = this.CreatObjectum(this.szavazatok);
+  keresoErtek: string = '';
+
+  korzet!: number;
+  szavazat!: number;
+  nev!: string;
+  part!: string;
 
   CreatObjectum(szavazatok: Szavazatok[]): Szavazatok[] {
     const szavazatokObj: Szavazatok[] = [];
@@ -63,7 +69,18 @@ export class SzavazatokComponent {
     return szavazatokObj;
   }
 
-  keresoErtek: string = '';
+  ujKepviseloHozzaadas() {
+    if (!this.korzet || !this.szavazat || !this.nev || !this.part) {
+      alert('Nincs minden mező megadva!');
+    } else {
+      this.szavazatokObject.push({
+        korzet: +this.korzet,
+        szavazat: +this.szavazat,
+        nev: this.nev,
+        part: this.part,
+      });
+    }
+  }
 
   get szurtElemek() {
     if (!this.keresoErtek) {

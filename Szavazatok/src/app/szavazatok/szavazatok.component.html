@@ -1,15 +1,59 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col-4">
-      <h2>Szavazatok szűrése</h2>
-      <div class="form-group">
-        <label for="keresoErtek">Add meg a keresés értékét</label>
-        <input
-          type="text"
-          class="form-control"
-          id="keresoErtek"
-          [(ngModel)]="keresoErtek"
-        />
+      <div class="">
+        <h2>Szavazatok szűrése</h2>
+        <div class="form-group">
+          <label for="keresoErtek">Add meg a keresés értékét</label>
+          <input
+            type="text"
+            class="form-control"
+            id="keresoErtek"
+            [(ngModel)]="keresoErtek"
+          />
+        </div>
+      </div>
+      <div class="">
+        <h2>Képviselő hozzáadása</h2>
+
+        <div class="form-group">
+          <label for="korzet">Körzet</label>
+          <input
+            type="number"
+            class="form-control"
+            id="korzet"
+            [(ngModel)]="korzet"
+          />
+        </div>
+        <div class="form-group">
+          <label for="szavazat">Szavazat</label>
+          <input
+            type="number"
+            class="form-control"
+            id="szavazat"
+            [(ngModel)]="szavazat"
+          />
+        </div>
+        <div class="form-group">
+          <label for="nev">Jelölt neve</label>
+          <input type="text" class="form-control" id="nev" [(ngModel)]="nev" />
+        </div>
+        <div class="form-group">
+          <label for="part">Párt neve</label>
+          <input
+            type="text"
+            class="form-control"
+            id="part"
+            [(ngModel)]="part"
+          />
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary w-100 my-3"
+          (click)="ujKepviseloHozzaadas()"
+        >
+          Képviselő hozzáadása
+        </button>
       </div>
     </div>
 
