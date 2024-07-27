@@ -4,7 +4,7 @@ import { KezdolapComponent } from './kezdolap/kezdolap.component';
 
 const routes: Routes = [
   { path: 'feladat', component: KezdolapComponent },
-  { path: '', redirectTo: '/vizsgafeladat', pathMatch: 'full' },
+  { path: '', redirectTo: '/feladat', pathMatch: 'full' },
 ];
 
 @NgModule({
