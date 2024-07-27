@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Vizsgafeladat</h1>
+  <div class="form-group">
+    <label for="input-number">Vizsgálandó szám:</label>
+    <input
+      type="number"
+      class="form-control mt-2 mb-2"
+      id="input-number"
+      [(ngModel)]="number"
+    />
+  </div>
+  <button
+    type="button"
+    class="btn btn-dark w-100 mb-2"
+    (click)="checkIfPrime()"
+  >
+    Eredmény mentés
+  </button>
+  <p *ngIf="currentResult">
+    A(z) {{ currentResult[0] }}: {{ currentResult[1] }}
+  </p>
+  <ul>
+    <li *ngFor="let result of ResultLog">{{ result }}</li>
+  </ul>
+</div>
