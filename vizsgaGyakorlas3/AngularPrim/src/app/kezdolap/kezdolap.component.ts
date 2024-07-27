@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './kezdolap.component.css',
 })
 export class KezdolapComponent {
-  number!: number;
+  number: number = 0;
   ResultLog: string[] = [];
   isPrime: boolean = true;
   currentResult: string[] = [];

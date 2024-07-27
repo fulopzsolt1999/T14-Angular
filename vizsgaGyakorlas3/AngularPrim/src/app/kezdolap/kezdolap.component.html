@@ -17,7 +17,7 @@
     Eredmény mentés
   </button>
   <p *ngIf="currentResult">
-    A(z) {{ currentResult[0] }}: {{ currentResult[1] }}
+    A(z) {{ number }}: {{ isPrime ? "prím" : "NEM prím" }}
   </p>
   <ul>
     <li *ngFor="let result of ResultLog">{{ result }}</li>
