@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { KezdolapComponent } from './kezdolap/kezdolap.component';
 
 const routes: Routes = [
-  { path: '', component: KezdolapComponent },
-  { path: '**', component: KezdolapComponent },
+  { path: 'feladat', component: KezdolapComponent },
+  { path: '', redirectTo: '/vizsgafeladat', pathMatch: 'full' },
 ];
 
 @NgModule({
