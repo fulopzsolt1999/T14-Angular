@@ -1,0 +1,64 @@
+<div class="container">
+    <h1>Programozási tételek dinamikus kezelése Angularban</h1>
+    <h2>Érték feltöltése manuálisan</h2>
+
+    <div class="form-floating">
+        <input type="number" class="form-control" id="manualisErtek" placeholder="Érték hozzáadása manuálisan"
+            [(ngModel)]="manualisErtek" min="1" max="1000">
+        <label for="manualisErtek">Érték hozzáadása manuálisan</label>
+    </div>
+
+    <button class="btn btn-primary w-100 my-2" (click)="ManualisErtekmegadas()">Érték feltöltése manuálisan</button>
+    <hr>
+    <h2>Érték feltöltése random generálással</h2>
+
+    <div class="row">
+        <div class="form-floating col-4">
+            <input type="number" class="form-control" id="elemSzam" placeholder="Elemek mennyisége"
+                [(ngModel)]="elemSzam" min="1" max="100" value="1">
+            <label for="elemSzam">Elemek mennyisége</label>
+        </div>
+
+        <div class="form-floating col-4">
+            <input type="number" class="form-control" id="alsoHatar" placeholder="Alsó határ értéke"
+                [(ngModel)]="alsoHatar" min="1" value="1">
+            <label for="alsoHatar">Alsó határ értéke</label>
+        </div>
+
+        <div class="form-floating col-4">
+            <input type="number" class="form-control" id="felsoHatar" placeholder="Felső határ értéke"
+                [(ngModel)]="felsoHatar" max="1000" value="100">
+            <label for="felsoHatar">Felső határ értéke</label>
+        </div>
+    </div>
+
+    <button class="btn btn-info w-100 my-2" (click)="AutomatikusErtekmegadas()" (click)=" ProgTetelek()">Érték
+        feltöltése
+        generálással</button>
+    <hr>
+    <h2>Programozási tételek STATISZTIKA:</h2>
+
+    <h4>A tömb elemeinek összege: {{elemekOsszege}}</h4>
+    <h4>A tömb elemeinek átlaga: {{elemekAtlaga}}</h4>
+    <h4>A tömb páros elemeinek száma: {{parosElemekSzama}}</h4>
+    <h4>Tömb páros elemeinek lisája</h4>
+    <ul>
+        <li *ngFor="let elem of parosElemek">
+            {{elem}}
+        </li>
+    </ul>
+
+    <h4>A tömb páratlan elemeinek száma: {{paratlanElemekSzama}}</h4>
+
+
+    <hr>
+    <h2>Tömb elemeinek listája</h2>
+    <ul>
+        <li *ngFor="let elem of tombErtekek">
+            {{elem}}
+        </li>
+    </ul>
+
+    <h1 class="text-center text-danger">Szorgalmi feladat: MIN és MAX meghatározás</h1>
+
+</div>
